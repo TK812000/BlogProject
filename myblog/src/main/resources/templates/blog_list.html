@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<title>Document</title>
+
+</head>
+
+<body>
+	<header>
+		<div class="header-user">
+			<p>ログイン中：<span th:text="${userName}"></span></p>
+		</div>
+		<div class="header-menu">
+			<a th:href="@{/blog/list}">Home</a>
+			<a th:href="@{/blog/register}">記事作成</a>
+			<a href="">Logout</a>
+		</div>
+	</header>
+	<main>
+		<article>
+			<div class="article-title">
+				<h1>記事一覧</h1>
+			</div>
+			<section class="blog-list">
+				<ul class="contents">
+					<li>
+						<a href="">
+							<!-- <img src="" alt=""> -->
+							<p></p><br>
+							<p></p>
+						</a>
+					</li>
+				</ul>
+			</section>
+		</article>
+
+	</main>
+	<footer>
+		<div>
+		</div>
+	</footer>
+</body>
+
+</html>

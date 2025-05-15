@@ -26,8 +26,6 @@ body {
     display: flex;
     min-height: 100vh;
     padding-top: 60px;
-    justify-content: center;
-    align-items: center;
 }
 
 form {
@@ -90,7 +88,7 @@ textarea {
     color: #333;
     margin: 0;
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -119,6 +117,10 @@ textarea {
 }
 
 
+.error-msg{
+	text-align: center;
+    color: #e74c3c;
+}
 /* 
 アカウント登録フォーム
 */
