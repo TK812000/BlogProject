@@ -2,46 +2,72 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-    
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
+
 </head>
 
 <body>
-    <header class="">
-        <div>
-            <a href="blog_list.html">Home</a>
-        </div>
-        <div>
-            <a href="blog_register.html">記事作成</a>
-        </div>
-        <div>
-            <a href="">Logout</a>
-        </div>
+	<header>
+		<div class="header-user">
+			<p>ログイン中：<span th:text="${userName}"></span></p>
+		</div>
+		<div class="header-menu">
+			<a th:href="@{/blog/list}">Home</a>
+			<a th:href="@{/blog/register}">記事作成</a>
+			<a th:href="@{/blog/logout}">Logout</a>
+		</div>
+	</header>
+	<main>
+		<article>
+			<div class="article-title">
+				<h1>記事一覧</h1>
+			</div>
+			<section class="blog-list">
+				<ul class="contents">
+					<li th:each="blog:${blogList}">
+						<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+							<img src = "eraser.png">
+							<p th:text="${blog.title}">aaaaaaaaa</p><br>
+							<p th:text="${blog.content}">aaaaaaaaaaaaaa</p>
+						</a>
+					</li>
+                    <li th:each="blog:${blogList}">
+						<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+							<img src = "2025-05-16-16-22-50-stamp.png">
+							<p th:text="${blog.title}">aaaaaaaaa</p><br>
+							<p th:text="${blog.content}">aaaaaaaaaaaaaa</p>
+						</a>
+					</li>
+                     <li th:each="blog:${blogList}">
+						<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+							<img src = "2025-05-16-16-22-50-stamp.png">
+							<p th:text="${blog.title}">aaaaaaaaa</p><br>
+							<p th:text="${blog.content}">aaaaaaaaaaaaaa</p>
+						</a>
+					</li>
+                    <li th:each="blog:${blogList}">
+						<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+							<img src = "2025-05-16-16-22-50-stamp.png">
+							<p th:text="${blog.title}">aaaaaaaaa</p><br>
+							<p th:text="${blog.content}">aaaaaaaaaaaaaa</p>
+						</a>
+					</li>
+                    <li th:each="blog:${blogList}">
+						<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+							<img src = "2025-05-16-16-22-50-stamp.png">
+							<p th:text="${blog.title}">aaaaaaaaa</p><br>
+							<p th:text="${blog.content}">aaaaaaaaaaaaaa</p>
+						</a>
+					</li>
+				</ul>
+			</section>
+		</article>
 
-    </header>
-    <main>
-        <article>
-            <div class="article-title">
-                <h1>記事一覧</h1>
-            </div>
-            <section class="blog-list">
-                <ul class="contents">
-                    <li>
-                        <a href="">
-                            <!-- <img src="" alt=""> -->
-                            <p></p><br>
-                            <p></p>
-                        </a>
-                    </li>
-                  </ul>
-            </section>
-        </article>
-
-    </main>
-    <footer>
+	</main>
+	<footer>
 		<div>
 		</div>
 	</footer>
