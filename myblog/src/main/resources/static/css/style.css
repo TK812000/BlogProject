@@ -154,6 +154,41 @@ textarea {
 }
 
 /* ブログ一覧画面 */
+
+.contents {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.contents li {
+    height: 400px;
+	width: 300px;
+    display: flex;
+	justify-content: center;
+	padding: 16px;
+	margin-bottom: 16px;
+	margin-right: 20px;
+	list-style: none;
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.contents p{
+    margin: 10px;
+	color: #333;
+    height: 3em;
+}
+
+.contents img {
+    height: 150px;
+    max-width: 100%;   
+    margin: 0 auto;
+    object-fit: cover; 
+}
+
+
 .article-title h1 {
 	border: 1px solid #ccc;
 	padding: 10px;
@@ -167,24 +202,6 @@ textarea {
 	justify-content: center;
 	margin: 0 auto;
 	padding: 40px 20px;
-}
-
-.contents {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.contents li {
-	padding: 16px;
-	margin-bottom: 16px;
-	margin-right: 20px;
-	min-height: 300px;
-	width: 300px;
-	list-style: none;
-	background-color: white;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* ブログ登録画面 */

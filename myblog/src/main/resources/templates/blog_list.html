@@ -17,7 +17,7 @@
 		<div class="header-menu">
 			<a th:href="@{/blog/list}">Home</a>
 			<a th:href="@{/blog/register}">記事作成</a>
-			<a href="">Logout</a>
+			<a th:href="@{/blog/logout}">Logout</a>
 		</div>
 	</header>
 	<main>
@@ -27,11 +27,11 @@
 			</div>
 			<section class="blog-list">
 				<ul class="contents">
-					<li>
-						<a href="">
-							<!-- <img src="" alt=""> -->
-							<p></p><br>
-							<p></p>
+					<li th:each="blog:${blogList}">
+						<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+							<img th:src="@{/img/{imagePath}(imagePath=${blog.image})}" alt="">
+							<p th:text="${blog.title}"></p><br>
+							<p th:text="${blog.content}"></p>
 						</a>
 					</li>
 				</ul>
