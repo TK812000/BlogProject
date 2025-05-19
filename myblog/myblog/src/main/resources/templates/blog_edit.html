@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<title>Document</title>
+</head>
+
+<body>
+	<header>
+		<div class="header-user">
+			<p>ログイン中：<span th:text="${userName}"></span></p>
+		</div>
+		<div class="header-menu">
+			<a th:href="@{/blog/list}">Home</a>
+			<a th:href="@{/blog/register}">記事作成</a>
+			<a th:href="@{/blog/profile}">Profile</a>
+			<a th:href="@{/blog/logout}">Logout</a>
+		</div>
+	</header>
+	<main>
+		<section class="edit-section">
+			<form class="delete-form" th:action="@{/blog/delete}" method="post"
+				onsubmit="return confirm('本当に削除しますか？');">
+				<input type="hidden" name="blogId" th:value="${blog.blogId}">
+				<button type="submit" class="delete-btn">削除</button>
+			</form>
+
+			<form th:action="@{/blog/edit/process}" method="post" class="edit-section-details"
+				enctype="multipart/form-data">
+				<div class="section-details_flex">
+					<label>現在の画像</label>
+					<img th:src="@{/img/{imagePath}(imagePath=${blog.image})}" alt="現在の画像">
+				</div>
+				<div class="section-details_flex">
+					<label for="title">タイトル</label>
+					<input type="text" id="title" name="title" th:value="${blog.title}">
+				</div>
+
+				<div class="section-details_flex">
+					<label for="category">カテゴリー</label>
+					<input type="text" id="category" name="category" th:value="${blog.category}">
+				</div>
+
+				<div class="section-details_flex">
+					<label for="file">画像</label>
+					<input type="file" id="file" name="image">
+				</div>
+
+				<div class="section-details_flex">
+					<label for="text">本文</label>
+					<textarea type="text" id="text" name="content" th:text="${blog.content}"></textarea>
+				</div>
+
+				<div>
+					<div class="edit-btns">
+						<input type="hidden" name="blogId" th:value="${blog.blogId}">
+						<button type="submit" class="register">編集</button>
+						<button class="back-btn" onclick="history.back();" type="button">戻る</button>
+					</div>
+				</div>
+
+			</form>
+		</section>
+	</main>
+</body>
+
+</html>

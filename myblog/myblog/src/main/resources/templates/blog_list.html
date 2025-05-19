@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<title>Document</title>
+
+</head>
+
+<body>
+	<header>
+		<div class="header-user">
+			<p>ログイン中：<span th:text="${userName}"></span></p>
+		</div>
+		<div class="header-menu">
+			<a th:href="@{/blog/list}">Home</a>
+			<a th:href="@{/blog/register}">記事作成</a>
+			<a th:href="@{/blog/profile}">Profile</a>
+			<a th:href="@{/blog/logout}">Logout</a>
+		</div>
+	</header>
+	<main>
+		<article>
+			<div class="article-title">
+				<h1>記事一覧</h1>
+			</div>
+			<section class="blog-list">
+				<ul class="contents">
+					<li th:each="blog:${blogList}">
+						<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+							<div class="img-area">
+								<img th:src="@{/img/{imagePath}(imagePath=${blog.image})}" alt="">
+							</div>
+							<div class="list-block">
+								<div class="title-row">
+									<p class="title" th:text="${blog.title}"></p><br>
+								</div>
+								<div class="category-row">
+									<p class="category" th:text="${blog.category}"></p>
+								</div>
+								<div class="content-row">
+									<p class="content" th:text="${blog.content}"></p>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</section>
+		</article>
+
+	</main>
+	<footer>
+		<div>
+		</div>
+	</footer>
+</body>
+
+</html>

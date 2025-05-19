@@ -154,21 +154,20 @@ textarea {
 }
 
 /* ブログ一覧画面 */
+
 .contents {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 20px;
+	display: flex;
 	flex-wrap: wrap;
-	margin: 0 auto;
 }
 
 .contents li {
-	display: flex;
+    height: 400px;
+	width: 300px;
+    display: flex;
 	justify-content: center;
-	flex-direction: column;
-	align-items: center;
 	padding: 16px;
 	margin-bottom: 16px;
+	margin-right: 20px;
 	list-style: none;
 	background-color: white;
 	border: 1px solid #ccc;
@@ -176,44 +175,34 @@ textarea {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
-.contents li:nth-child(3n) {
-    margin-right: 0; /* 3の倍数の要素の右マージンを消す */
-}
-.contents img {
-    height: 150px;
-    max-width: 100%;   
-    object-fit: cover; 
-}
-
 .contents p{
     margin: 10px;
 	color: #333;
     height: 3em;
 }
 
-.contents li a{
-	display: flex;
-    flex-direction: column;
-    align-items: center;
+.contents img {
+    height: 150px;
+    max-width: 100%;   
+    margin: 0 auto;
+    object-fit: cover; 
 }
 
+
 .article-title h1 {
-	display: flex;
-	justify-content: center;
 	border: 1px solid #ccc;
 	padding: 10px;
 	margin-top: 20px;
+	display: flex;
+	justify-content: center;
 }
+
 .blog-list {
 	display: flex;
 	justify-content: center;
 	margin: 0 auto;
 	padding: 40px 20px;
 }
-
-
-
-
 
 /* ブログ登録画面 */
 .edit-section {
