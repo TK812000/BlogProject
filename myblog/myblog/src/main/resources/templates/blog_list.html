@@ -24,6 +24,14 @@
 	</header>
 	<main>
 		<article>
+			<div class="search">
+				<form th:action="@{/blog/search}" method="get" class="search-form">
+					<div class="input-wrapper">
+						<input type="text" name="keyword" placeholder="タイトル検索">
+						<button type="submit" class="search-btn">検索</button>
+					</div>
+				</form>
+			</div>
 			<div class="article-title">
 				<h1>記事一覧</h1>
 			</div>
@@ -36,7 +44,7 @@
 							</div>
 							<div class="list-block">
 								<div class="title-row">
-									<p class="title" th:text="${blog.title}"></p><br>
+									<p class="title" th:text="${blog.title}"></p>
 								</div>
 								<div class="category-row">
 									<p class="category" th:text="${blog.category}"></p>

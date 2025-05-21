@@ -20,5 +20,9 @@ public interface BlogDao extends JpaRepository<Blog, Long> {
 
 	// 一覧の表示
 	List<Blog> findAll();
+	//自分のアカウントのみ
+	List<Blog> findByAccountId(Long accountId);
 
+//	検索
+	List<Blog> findByAccountIdAndTitleContaining(Long accountId, String title);
 }

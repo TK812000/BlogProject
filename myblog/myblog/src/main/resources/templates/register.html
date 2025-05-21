@@ -13,6 +13,7 @@
 	<main>
 		<h1>アカウント作成</h1>
 		<form th:action="@{/register/process}" method="post">
+			<p class="error-msg"><span th:if="${error}" th:text="${error}"></span></p>
 			<div class="user-register-form">
 				<div>
 					<label for="username">ユーザーネーム</label>

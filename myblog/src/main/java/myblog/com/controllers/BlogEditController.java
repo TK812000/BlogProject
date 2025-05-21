@@ -16,10 +16,10 @@ import myblog.com.service.BlogService;
 
 @Controller
 public class BlogEditController {
+//	セッションの呼び出し
 	@Autowired
 	private HttpSession session;
-	@Autowired
-	private BlogDao Blogdao;
+//	サービスクラスの呼び出し
 	@Autowired
 	private BlogService blogService;
 
@@ -35,7 +35,9 @@ public class BlogEditController {
 		if (account == null) {
 			return "redirect:/login";
 		} else {
+//			ブログのIDを渡す
 			model.addAttribute("blog", blog);
+//			ユーザーネームを渡す
 			model.addAttribute("userName", account.getUserName());
 			return "blog_edit.html";
 		}

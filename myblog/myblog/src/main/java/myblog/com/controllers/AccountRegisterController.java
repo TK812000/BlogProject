@@ -11,6 +11,7 @@ import myblog.com.service.AccountService;
 
 @Controller
 public class AccountRegisterController {
+//	サービスクラスの呼び出し
 	@Autowired
 	private AccountService accountService;
 
@@ -20,16 +21,19 @@ public class AccountRegisterController {
 		return "/register.html";
 	}
 
-// 登録処理
-//	成功したらログインページに飛ぶ
-//	失敗したら登録ページに飛ぶ
+//	 アカウント登録処理
+//		成功したらログインページに飛ぶ
+//		失敗したら登録ページに飛ぶ
 	@PostMapping("/register/process")
 	public String accountRegisterProcess(@RequestParam String userName, @RequestParam String email,
 			@RequestParam String password, Model model) {
 		if (accountService.createAccount(userName, email, password)) {
+//			ログイン画面へ
 			return "login.html";
 		} else {
-			model.addAttribute("error", "メールアドレスまたはパスワードが違います");
+//			作成できなければエラー文を表示
+			model.addAttribute("error", "作成済みのメールアドレスです");
+//			登録画面へ
 			return "/register.html";
 		}
 	}

@@ -14,14 +14,15 @@ import myblog.com.service.AccountService;
 @Controller
 
 public class AccountLoginController {
-	@Autowired
-	private AccountService accountService;
-
 //	セッションの宣言
 	@Autowired
 	private HttpSession session;
 
-	// ログイン画面の表示
+	// サービスクラスの呼び出し
+	@Autowired
+	private AccountService accountService;
+
+//	ログイン画面の表示
 	@GetMapping("/login")
 	public String getAccountLogin() {
 		return "login.html";
@@ -29,11 +30,13 @@ public class AccountLoginController {
 
 //	ログイン処理
 	@PostMapping("/login/process")
-//	accountがnullならログインページに飛ぶ
-	// accountがあるならセッションを保持し記事一覧画面へ
 	public String AccountloginController(@RequestParam String email, @RequestParam String password, Model model) {
+//		一致するアカウントが存在するか確認
 		Account account = accountService.loginCheck(email, password);
+//		accountがnullならログインページに飛ぶ
+//		accountがあるならセッションを保持し記事一覧画面へ
 		if (account == null) {
+//			メールアドレス、パスワードが一致しなければエラー文を出す
 			model.addAttribute("error", "メールアドレスまたはパスワードが違います");
 			return "login.html";
 		} else {

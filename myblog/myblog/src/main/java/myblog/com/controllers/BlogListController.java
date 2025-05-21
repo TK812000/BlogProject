@@ -14,11 +14,13 @@ import myblog.com.service.BlogService;
 
 @Controller
 public class BlogListController {
-
+//	セッションの呼び出し
 	@Autowired
 	private HttpSession session;
+//	サービスクラスの呼び出し
 	@Autowired
 	private BlogService blogService;
+
 //	ブログ一覧を画面に表示
 	@GetMapping("/blog/list")
 	public String getBlogListPage(Model model) {
@@ -30,6 +32,7 @@ public class BlogListController {
 			return "redirect:/login";
 		} else {
 			List<Blog> blogList = blogService.selectAllBloglist(account.getAccountId());
+//			ユーザーネームを渡す
 			model.addAttribute("userName", account.getUserName());
 			model.addAttribute("blogList", blogList);
 			return "blog_list.html";

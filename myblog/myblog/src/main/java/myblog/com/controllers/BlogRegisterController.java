@@ -20,8 +20,10 @@ import myblog.com.service.BlogService;
 
 @Controller
 public class BlogRegisterController {
+//	セッション呼び出し
 	@Autowired
 	private HttpSession session;
+//	サービスクラスの呼び出し
 	@Autowired
 	private BlogService blogService;
 
@@ -41,7 +43,7 @@ public class BlogRegisterController {
 		}
 	}
 
-//	商品の登録
+//	ブログの登録処理
 	@PostMapping("/blog/register/process")
 	public String blogRegisterProcess(@RequestParam String title, @RequestParam String category,
 			@RequestParam String content, @RequestParam MultipartFile image) {
@@ -72,7 +74,7 @@ public class BlogRegisterController {
 			}
 		}
 	}
-//	更新処理をする
+//	ブログの更新処理
 	@PostMapping
 	("/blog/edit/process")
 	public String blogUpdate(@RequestParam String title, 

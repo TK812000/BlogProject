@@ -11,13 +11,15 @@ import myblog.com.service.BlogService;
 
 @Controller
 public class BlogDeleteController {
-	
-	@Autowired
-	private BlogService blogService;
 //	セッションの宣言
 	@Autowired
 	private HttpSession session;
-
+	
+//	サービスクラスの呼び出し
+	@Autowired
+	private BlogService blogService;
+	
+//	ブログの削除処理
 	@PostMapping("/blog/delete")
 	public String blogDelete(@RequestParam Long blogId) {
 		// セッションからログインしている人をaccountに格納

@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class BlogLogoutController {
+//	セッションの呼び出し
 	@Autowired
 	private HttpSession session;
 
