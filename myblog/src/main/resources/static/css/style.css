@@ -21,7 +21,6 @@ header {
 body {
 	display: flex;
 	justify-content: center;
-	font-family: 'Roboto', sans-serif;
 	background: linear-gradient(45deg, #872c8b, #49a2aa);
 	color: #333;
 	min-height: 100vh;
@@ -188,12 +187,10 @@ textarea {
 }
 
 .img-area {
-	height: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	padding-top: 5px;
 }
 
 .contents img {
@@ -249,6 +246,12 @@ textarea {
 	white-space: normal;
 	font-size: 15px;
 	overflow: hidden;
+}
+
+.no-blog {
+	text-align: center;
+	font-size: 20px;
+	color: #E5E5E5;
 }
 
 /* タイトル部分 */
@@ -395,4 +398,22 @@ form.edit-section-details {
 	background-color: #E5E5E5;
 	color: rgb(0, 0, 0);
 	border-radius: 5px;
+}
+
+/*エフェクト*/
+a:hover {
+	transform: scale(0.95);
+	transition: transform 0.05s;
+}
+
+.category a {
+	color: #888;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.category a:hover {
+	color: #cc4ba7;
+	text-decoration: underline;
+	transform: scale(1.05);
 }

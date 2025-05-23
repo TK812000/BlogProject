@@ -29,7 +29,7 @@ public class Blog {
 	// account_id
 	private Long accountId;
 
-//	空のコンストラクタ
+	// 空のコンストラクタ
 	private Blog() {
 
 	}

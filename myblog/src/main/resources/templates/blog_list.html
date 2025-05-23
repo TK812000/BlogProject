@@ -22,6 +22,7 @@
 			<a th:href="@{/blog/logout}">Logout</a>
 		</div>
 	</header>
+	
 	<main>
 		<article>
 			<div class="search">
@@ -36,7 +37,12 @@
 				<h1>記事一覧</h1>
 			</div>
 			<section class="blog-list">
-				<ul class="contents">
+				<!-- ブログが1件もない場合のメッセージ -->
+				<div class="no-blog" th:if="${#lists.isEmpty(blogList)}">
+					<p　>該当する記事はありません。</p>
+				</div>
+				
+				<ul class="contents"　th:if="${!#lists.isEmpty(blogList)}">
 					<li th:each="blog:${blogList}">
 						<a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
 							<div class="img-area">
@@ -47,7 +53,9 @@
 									<p class="title" th:text="${blog.title}"></p>
 								</div>
 								<div class="category-row">
-									<p class="category" th:text="${blog.category}"></p>
+									<p class="category" >
+										<a th:href="@{'/blog/category'(name=${blog.category})}" th:text="${blog.category}"></a>
+									</p>
 								</div>
 								<div class="content-row">
 									<p class="content" th:text="${blog.content}"></p>

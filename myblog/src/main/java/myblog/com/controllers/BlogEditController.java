@@ -16,28 +16,28 @@ import myblog.com.service.BlogService;
 
 @Controller
 public class BlogEditController {
-//	セッションの呼び出し
+	// セッションの呼び出し
 	@Autowired
 	private HttpSession session;
-//	サービスクラスの呼び出し
+	// サービスクラスの呼び出し
 	@Autowired
 	private BlogService blogService;
 
-//	画面の表示
+	// 画面の表示
 	@GetMapping("/blog/edit/{blogId}")
 	public String getBlogEditpage(@PathVariable Long blogId, Model model) {
-		// セッションからログインしている人をaccountに格納
+	// セッションからログインしている人をaccountに格納
 		Account account = (Account) session.getAttribute("loginAccountInfo");
-//	データを取得して表示する情報を格納する
+	// データを取得して表示する情報を格納する
 		Blog blog = blogService.blogEditCheck(blogId);
-//	accountがnullならリダイレクト
-//	そうでないなら編集画面へ
+	// accountがnullならリダイレクト
+	// そうでないなら編集画面へ
 		if (account == null) {
 			return "redirect:/login";
 		} else {
-//			ブログのIDを渡す
+	// ブログのIDを渡す
 			model.addAttribute("blog", blog);
-//			ユーザーネームを渡す
+	// ユーザーネームを渡す
 			model.addAttribute("userName", account.getUserName());
 			return "blog_edit.html";
 		}

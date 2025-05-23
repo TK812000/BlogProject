@@ -10,7 +10,7 @@ public interface BlogDao extends JpaRepository<Blog, Long> {
 	// 保存、更新処理
 	Blog save(Blog blog);
 
-//	同じタイトル名は表示しない
+	// 同じタイトル名は表示しない
 	Blog findByTitle(String title);
 	// 編集画面の表示
 	Blog findByBlogId(Long blogId);
@@ -20,9 +20,19 @@ public interface BlogDao extends JpaRepository<Blog, Long> {
 
 	// 一覧の表示
 	List<Blog> findAll();
-	//自分のアカウントのみ
+	// 自分のアカウントのみ
 	List<Blog> findByAccountId(Long accountId);
 
-//	検索
+	// タイトル検索
+	// SQL
+	// SELECT　*
+	// FROM blog 
+	// WHERE　account_Id =:accountId
+	// AND title LIKE '%:title%';
 	List<Blog> findByAccountIdAndTitleContaining(Long accountId, String title);
+	
+	
+	// カテゴリーの検索
+	List<Blog> findByCategory(String category);
+
 }

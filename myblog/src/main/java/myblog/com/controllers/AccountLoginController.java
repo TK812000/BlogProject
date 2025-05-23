@@ -14,7 +14,7 @@ import myblog.com.service.AccountService;
 @Controller
 
 public class AccountLoginController {
-//	セッションの宣言
+	// セッションの宣言
 	@Autowired
 	private HttpSession session;
 
@@ -22,21 +22,21 @@ public class AccountLoginController {
 	@Autowired
 	private AccountService accountService;
 
-//	ログイン画面の表示
+	// ログイン画面の表示
 	@GetMapping("/login")
 	public String getAccountLogin() {
 		return "login.html";
 	}
 
-//	ログイン処理
+	// ログイン処理
 	@PostMapping("/login/process")
 	public String AccountloginController(@RequestParam String email, @RequestParam String password, Model model) {
-//		一致するアカウントが存在するか確認
+	// 一致するアカウントが存在するか確認
 		Account account = accountService.loginCheck(email, password);
-//		accountがnullならログインページに飛ぶ
-//		accountがあるならセッションを保持し記事一覧画面へ
+	// accountがnullならログインページに飛ぶ
+	// accountがあるならセッションを保持し記事一覧画面へ
 		if (account == null) {
-//			メールアドレス、パスワードが一致しなければエラー文を出す
+	// メールアドレス、パスワードが一致しなければエラー文を出す
 			model.addAttribute("error", "メールアドレスまたはパスワードが違います");
 			return "login.html";
 		} else {

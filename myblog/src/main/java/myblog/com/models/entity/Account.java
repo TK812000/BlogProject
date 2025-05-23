@@ -12,16 +12,16 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long accountId;
 
-//	username
+	// username
 	private String userName;
 
-//	password
+	// password
 	private String email;
 
-//	email
+	// email
 	private String password;
 
-//	空のコンストラクタ
+	// 空のコンストラクタ
 	public Account() {
 	}
 
@@ -31,7 +31,7 @@ public class Account {
 		this.email = email;
 	}
 
-//	getter,setterの設定
+	// getter,setterの設定
 	public Long getAccountId() {
 		return accountId;
 	}

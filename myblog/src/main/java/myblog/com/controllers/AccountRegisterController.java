@@ -11,29 +11,29 @@ import myblog.com.service.AccountService;
 
 @Controller
 public class AccountRegisterController {
-//	サービスクラスの呼び出し
+	// サービスクラスの呼び出し
 	@Autowired
 	private AccountService accountService;
 
-//	アカウント登録画面の表示
+	// アカウント登録画面の表示
 	@GetMapping("/register")
 	public String GetRegisterPage() {
 		return "/register.html";
 	}
 
-//	 アカウント登録処理
-//		成功したらログインページに飛ぶ
-//		失敗したら登録ページに飛ぶ
+	// アカウント登録処理
+	// 成功したらログインページに飛ぶ
+	// 失敗したら登録ページに飛ぶ
 	@PostMapping("/register/process")
 	public String accountRegisterProcess(@RequestParam String userName, @RequestParam String email,
 			@RequestParam String password, Model model) {
 		if (accountService.createAccount(userName, email, password)) {
-//			ログイン画面へ
+	// ログイン画面へ
 			return "login.html";
 		} else {
-//			作成できなければエラー文を表示
-			model.addAttribute("error", "既に作成済みです");
-//			登録画面へ
+	// 作成できなければエラー文を表示
+			model.addAttribute("error", "作成済みのメールアドレスです");
+	// 登録画面へ
 			return "/register.html";
 		}
 	}

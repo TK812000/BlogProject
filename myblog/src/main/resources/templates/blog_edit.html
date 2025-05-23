@@ -31,6 +31,7 @@
 
 			<form th:action="@{/blog/edit/process}" method="post" class="edit-section-details"
 				enctype="multipart/form-data">
+				<input type="hidden" name="oldImage" th:value="${blog.image}">
 				<div class="section-details_flex">
 					<label>現在の画像</label>
 					<img th:src="@{/img/{imagePath}(imagePath=${blog.image})}" alt="現在の画像">
@@ -49,12 +50,10 @@
 					<label for="file">画像</label>
 					<input type="file" id="file" name="image">
 				</div>
-
 				<div class="section-details_flex">
 					<label for="text">本文</label>
 					<textarea type="text" id="text" name="content" th:text="${blog.content}"></textarea>
 				</div>
-
 				<div>
 					<div class="edit-btns">
 						<input type="hidden" name="blogId" th:value="${blog.blogId}">

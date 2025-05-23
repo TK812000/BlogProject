@@ -2,52 +2,58 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/reset.css}">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<title>Document</title>
 </head>
 
 <body>
-    <header>
-        <div class="header-user">
-            <p>ログイン中：<span th:text="${userName}"></span></p>
-        </div>
-        <div class="header-menu">
-            <a th:href="@{/blog/list}">Home</a>
-            <a th:href="@{/blog/register}">記事作成</a>
-            <a th:href="@{/blog/profile}">Profile</a>
-            <a th:href="@{/blog/logout}">Logout</a>
-        </div>
-    </header>
-    <main>
-        <section class="profile-section">
-            <div class="profile-title">
-                <h1>MyProfile</h1><br>
-            </div>
-            <div class ="profile-text">
-            <div>
-                <h2>Name/名前</h2>
-                <p>kase takuya</p>
-                <p>加瀬拓也</p><br>
-            </div>
-            <div>
-                <h2>Age/生年月日</h2>
-                <p>8月12日</p><br>
-            </div>
-            <div>
-                <h2>Hobby/趣味</h2>
-                <p>ゲーム・アニメ・映画・音楽・読書</p><br>
-            </div>
-            <div>
-                <h2>勉強中</h2>
-                <p>HTML/CSS/Java/SQL</p>
-                <p>今は基本情報技術者を取得する勉強をしています！</p>
-            </div>
-        </div>
-        </section>
-    </main>
+	<header>
+		<div class="header-user">
+			<p>ログイン中：<span th:text="${userName}"></span></p>
+		</div>
+		<div class="header-menu">
+			<a th:href="@{/blog/list}">Home</a>
+			<a th:href="@{/blog/register}">記事作成</a>
+			<a th:href="@{/blog/profile}">Profile</a>
+			<a th:href="@{/blog/logout}">Logout</a>
+		</div>
+	</header>
+
+	<main>
+		<section class="profile-section">
+			<div class="profile-title">
+				<h1>MyProfile</h1><br>
+			</div>
+			<div class="profile-text">
+				<div>
+					<h2>Name/名前</h2>
+					<p>kase takuya</p>
+					<p>加瀬拓也</p><br>
+				</div>
+				<div>
+					<h2>Age/生年月日</h2>
+					<p>8月12日</p><br>
+				</div>
+				<div>
+					<h2>Hometown/出身地</h2>
+					<p>千葉県/多古町</p>
+					<p>お米がおいしいところです!</p><br>
+				</div>
+				<div>
+					<h2>Hobby/趣味</h2>
+					<p>ゲーム・アニメ・映画・音楽・読書</p><br>
+				</div>
+				<div>
+					<h2>勉強中</h2>
+					<p>HTML/CSS/Java/SQL</p>
+					<p>今は基本情報技術者を取得する勉強をしています！</p>
+				</div>
+			</div>
+		</section>
+	</main>
 </body>
 
 </html>
